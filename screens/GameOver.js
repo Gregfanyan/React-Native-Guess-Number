@@ -1,12 +1,17 @@
 import React from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View, Button, Image } from "react-native";
+import BodyText from "../components/BodyText";
+
+import bodyText from "../components/BodyText";
+import TitleText from "../components/TitleText";
 
 export default function GameOver(props) {
   return (
     <View style={styles.screen}>
-      <Text>The Game is Over</Text>
-      <Text>Number of Rounds: {props.roundsNumber} </Text>
-      <Text>Number was: {props.userNumber}</Text>
+      <TitleText>The Game is Over</TitleText>
+      <BodyText>Number of Rounds: {props.roundsNumber} </BodyText>
+      <BodyText>Number was: {props.userNumber}</BodyText>
+      <Image source={require('../assets/favicon.png')} />
       <Button title="New Game" onPress={props.onRestart} />
     </View>
   );
