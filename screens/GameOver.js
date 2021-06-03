@@ -4,6 +4,7 @@ import BodyText from "../components/BodyText";
 
 import bodyText from "../components/BodyText";
 import TitleText from "../components/TitleText";
+import Colors from "../constants/Colors";
 
 export default function GameOver(props) {
   return (
@@ -12,16 +13,22 @@ export default function GameOver(props) {
       <View style={styles.imageContainer}>
         <Image
           fadeDuration={200}
-          //source={require("../assets/success.png")}
-          source={{
-            uri: "https://image.shutterstock.com/image-photo/evening-view-ama-dablam-on-260nw-258841592.jpg",
-          }}
+          source={require("../assets/success.png")}
+          // source={{
+          //   uri: "https://image.shutterstock.com/image-photo/evening-view-ama-dablam-on-260nw-258841592.jpg",
+          // }}
           style={styles.image}
           resizeMode="cover"
         />
       </View>
-      <BodyText>Number of Rounds: {props.roundsNumber} </BodyText>
-      <BodyText>Number was: {props.userNumber}</BodyText>
+      <View style={styles.resultContaier}>
+        <BodyText style={styles.textResult}>
+          Your phone needed{" "}
+          <Text style={styles.highlight}>{props.roundsNumber}</Text> Rounds to
+          guess the number{" "}
+          <Text style={styles.highlight}>{props.userNumber}</Text>
+        </BodyText>
+      </View>
       <Button title="New Game" onPress={props.onRestart} />
     </View>
   );
@@ -44,5 +51,17 @@ const styles = StyleSheet.create({
   image: {
     width: "100%",
     height: "100%",
+  },
+  resultContaier: {
+    marginHorizontal: 30,
+    marginVertical: 15,
+  },
+  highlight: {
+    color: Colors.primary,
+    fontFamily: "open-sans-bold",
+  },
+  textResult: {
+    textAlign: "center",
+    fontSize: 20,
   },
 });
