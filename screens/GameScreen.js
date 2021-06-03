@@ -5,6 +5,7 @@ import NumberContainer from "../components/NumberContainer";
 import Card from "../components/Card";
 import DefaultStyle from "../constants/DefaultStyle";
 import TitleText from "../components/TitleText";
+import MainScreen from "../components/MainButton";
 
 const generateRandomBetween = (min, max, exclude) => {
   min = Math.ceil(min);
@@ -62,11 +63,12 @@ export default function GameScreen(props) {
       <TitleText>Opponent'ss Guess</TitleText>
       <NumberContainer>{currentGuess}</NumberContainer>
       <Card style={styles.buttonContainer}>
-        <Button title="Lower" onPress={nextGuessHandler.bind(this, "lower")} />
-        <Button
-          title="Greater"
-          onPress={nextGuessHandler.bind(this, "greater")}
-        />
+        <MainScreen onPress={nextGuessHandler.bind(this, "lower")}>
+          Lower
+        </MainScreen>
+        <MainScreen onPress={nextGuessHandler.bind(this, "greater")}>
+          Greater
+        </MainScreen>
       </Card>
     </View>
   );
@@ -81,7 +83,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     marginTop: 20,
-    width: 300,
+    width: 400,
     maxWidth: "80%",
   },
 });

@@ -5,6 +5,7 @@ import BodyText from "../components/BodyText";
 import bodyText from "../components/BodyText";
 import TitleText from "../components/TitleText";
 import Colors from "../constants/Colors";
+import MainButton from "../components/MainButton";
 
 export default function GameOver(props) {
   return (
@@ -29,7 +30,7 @@ export default function GameOver(props) {
           <Text style={styles.highlight}>{props.userNumber}</Text>
         </BodyText>
       </View>
-      <Button title="New Game" onPress={props.onRestart} />
+      <MainButton onPress={props.onRestart}>New Game</MainButton>
     </View>
   );
 }
