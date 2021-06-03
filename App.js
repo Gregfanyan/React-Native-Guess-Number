@@ -10,7 +10,7 @@ import GameOver from "./screens/GameOver";
 import * as Font from "expo-font";
 
 const fetchFonts = () => {
-  Font.loadAsync({
+  return Font.loadAsync({
     "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
     "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
   });
@@ -20,20 +20,11 @@ export default function App() {
   const [userNumber, setUserNumber] = useState();
   const [guessRounds, setGuessRounds] = useState(0);
   const [dataLoaded, setDataLoaded] = useState(false);
+
   const startGameHandler = (selectedNumber) => {
     setUserNumber(selectedNumber);
     setGuessRounds(0);
   };
-
-  if (!dataLoaded) {
-    return (
-      <AppLoading
-        startAsync={fetchFonts}
-        onFinish={() => setDataLoaded(true)}
-        onError={(err) => console.log(err)}
-      />
-    );
-  }
 
   const gameOverHandler = (numOfRounds) => {
     setGuessRounds(numOfRounds);
@@ -56,6 +47,16 @@ export default function App() {
         userNumber={userNumber}
         roundsNumber={guessRounds}
         onRestart={configureNameGame}
+      />
+    );
+  }
+
+  if (!dataLoaded) {
+    return (
+      <AppLoading
+        startAsync={fetchFonts}
+        onFinish={() => setDataLoaded(true)}
+        onError={console.warn}
       />
     );
   }
