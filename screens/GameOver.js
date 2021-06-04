@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderColor: "black",
     overflow: "hidden",
-    marginVertical: Dimensions.get("window").height / 20,
+    marginVertical: Dimensions.get("window").height / 30,
   },
   image: {
     width: "100%",
