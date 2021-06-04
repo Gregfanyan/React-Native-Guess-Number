@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
-//import { AppLoading } from "expo";
 import AppLoading from "expo-app-loading";
 
 import Header from "./components/Header";
@@ -70,7 +69,7 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  screen: {
     flex: 1,
   },
 });
