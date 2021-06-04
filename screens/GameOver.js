@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    paddingVertical: 15,
   },
   imageContainer: {
     width: Dimensions.get("window").width * 0.7,
